@@ -130,7 +130,7 @@ keyboardEl.addEventListener("click", (e) => {
             if (GAMESTATUS == "GAME"){
                 confirmWord();
             }
-        } else if (e.target.innerHTML == "BACKSPACE"){
+        } else if (e.target.innerHTML == "COFNIJ"){
             if (GAMESTATUS == "GAME"){
                 popLetter();
             }
