@@ -1,96 +1,96 @@
 <!DOCTYPE html>
 <html lang="pl">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Literalnie</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Literalnie</title>
 
-        <link rel="stylesheet" href="style.css" />
-        <script src="words.js" defer></script>
-        <script src="game.js" defer></script>
-    </head>
-    <body>
-        <div id="tutorial">
-            <div class="tutorial-container">
-                <h1>JAK GRAĆ?</h1>
-                <h3>Zgadnij wybrane słowo!</h3>
-                <div class="tutorial-main">
-                    <div class="tutorial-section">
-                        <div class="square good"></div>
-                        <div class="tutorial-text">Udało ci się zgadnąć literę</div>
-                    </div>
-                    <div class="tutorial-section">
-                        <div class="square nearly"></div>
-                        <div class="tutorial-text">Litera znajduje się w innym miejscu</div>
-                    </div>
-                    <div class="tutorial-section">
-                        <div class="square bad"></div>
-                        <div class="tutorial-text">Słowo nie zawiera litery</div>
-                    </div>
-                </div>
-                <button id="start-game">START</button>
-            </div>
-        </div>
-        <div class="container">
-            <div class="header">
-                <h1>LITERALNIE</h1>
-            </div>
-            <div class="board"></div>
-            <div class="keyboard">
-                <div class="keyboard-row">
-                    <div class="key">Ą</div>
-                    <div class="key">Ć</div>
-                    <div class="key">Ę</div>
-                    <div class="key">Ł</div>
-                    <div class="key">Ó</div>
-                    <div class="key">Ś</div>
-                    <div class="key">Ń</div>
-                    <div class="key">Ż</div>
-                    <div class="key">Ź</div>
-                </div>
-                <div class="keyboard-row">
-                    <div class="key">Q</div>
-                    <div class="key">W</div>
-                    <div class="key">E</div>
-                    <div class="key">R</div>
-                    <div class="key">T</div>
-                    <div class="key">Y</div>
-                    <div class="key">U</div>
-                    <div class="key">I</div>
-                    <div class="key">O</div>
-                    <div class="key">P</div>
-                </div>
-                <div class="keyboard-row">
-                    <div class="key">A</div>
-                    <div class="key">S</div>
-                    <div class="key">D</div>
-                    <div class="key">F</div>
-                    <div class="key">G</div>
-                    <div class="key">H</div>
-                    <div class="key">J</div>
-                    <div class="key">K</div>
-                    <div class="key">L</div>
-                </div>
-                <div class="keyboard-row">
-                    <div class="key option">ENTER</div>
-                    <div class="key">Z</div>
-                    <div class="key">X</div>
-                    <div class="key">C</div>
-                    <div class="key">V</div>
-                    <div class="key">B</div>
-                    <div class="key">N</div>
-                    <div class="key">M</div>
-                    <div class="key option">COFNIJ</div>
-                </div>
-            </div>
-        </div>
-        <div id="end">
-            <div class="end-container">
-                <h1 id="end-status">WYGRAŁEŚ</h1>
-                <h3 id="password">HASŁO TO: QWERTY</h3>
-                <button id="restart-game">JESZCZE RAZ</button>
-            </div>
-        </div>
-    </body>
+		<link rel="stylesheet" href="style.css" />
+		<script src="utils.js" defer></script>
+		<script src="game.js" defer></script>
+	</head>
+	<body>
+		<div id="tutorial">
+			<div class="tutorial-container">
+				<h1>JAK GRAĆ?</h1>
+				<h3>Zgadnij wybrane słowo!</h3>
+				<div class="tutorial-main">
+					<div class="tutorial-section">
+						<div class="square good"></div>
+						<div class="tutorial-text">Udało ci się zgadnąć literę</div>
+					</div>
+					<div class="tutorial-section">
+						<div class="square nearly"></div>
+						<div class="tutorial-text">Litera znajduje się w innym miejscu</div>
+					</div>
+					<div class="tutorial-section">
+						<div class="square bad"></div>
+						<div class="tutorial-text">Słowo nie zawiera litery</div>
+					</div>
+				</div>
+				<button id="start-game">START</button>
+			</div>
+		</div>
+		<div class="container">
+			<div class="header">
+				<h1>LITERALNIE</h1>
+			</div>
+			<div class="board"></div>
+			<div class="keyboard">
+				<div class="keyboard-row">
+					<div class="key">Ą</div>
+					<div class="key">Ć</div>
+					<div class="key">Ę</div>
+					<div class="key">Ł</div>
+					<div class="key">Ó</div>
+					<div class="key">Ś</div>
+					<div class="key">Ń</div>
+					<div class="key">Ż</div>
+					<div class="key">Ź</div>
+				</div>
+				<div class="keyboard-row">
+					<div class="key">Q</div>
+					<div class="key">W</div>
+					<div class="key">E</div>
+					<div class="key">R</div>
+					<div class="key">T</div>
+					<div class="key">Y</div>
+					<div class="key">U</div>
+					<div class="key">I</div>
+					<div class="key">O</div>
+					<div class="key">P</div>
+				</div>
+				<div class="keyboard-row">
+					<div class="key">A</div>
+					<div class="key">S</div>
+					<div class="key">D</div>
+					<div class="key">F</div>
+					<div class="key">G</div>
+					<div class="key">H</div>
+					<div class="key">J</div>
+					<div class="key">K</div>
+					<div class="key">L</div>
+				</div>
+				<div class="keyboard-row">
+					<div class="key option">ENTER</div>
+					<div class="key">Z</div>
+					<div class="key">X</div>
+					<div class="key">C</div>
+					<div class="key">V</div>
+					<div class="key">B</div>
+					<div class="key">N</div>
+					<div class="key">M</div>
+					<div class="key option">COFNIJ</div>
+				</div>
+			</div>
+		</div>
+		<div id="end">
+			<div class="end-container">
+				<h1 id="end-status">WYGRAŁEŚ</h1>
+				<h3 id="password">HASŁO TO: QWERTY</h3>
+				<button id="restart-game">JESZCZE RAZ</button>
+			</div>
+		</div>
+	</body>
 </html>

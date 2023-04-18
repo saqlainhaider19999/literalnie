@@ -3,7 +3,7 @@ let GAMESTATUS = 'START';
 let randomWord = words[Math.floor(Math.random() * words.length)];
 
 const pickedWord = randomWord.toUpperCase();
-console.log(pickedWord);
+//console.log(pickedWord);
 
 let boardEl = document.querySelector('.board');
 boardEl.style.gridTemplateColumns = `repeat(${pickedWord.length}, 55px)`;
@@ -17,10 +17,10 @@ for (let i = 0; i < 6; i++) {
 	}
 }
 
-document.querySelector('#start-game').addEventListener('click', () => {
+const startGame = () => {
 	document.querySelector('#tutorial').style.display = 'none';
 	GAMESTATUS = 'GAME';
-});
+};
 
 let currentWord = '';
 let currentLevel = 0;
@@ -30,7 +30,7 @@ let currentSquares = document.querySelectorAll(".square[level='0']");
 let keysEl = document.querySelectorAll('.key');
 let keyboardEl = document.querySelector('.keyboard');
 
-let pushLetter = (letter) => {
+const pushLetter = (letter) => {
 	if (currentWord.length < pickedWord.length) {
 		let lg = currentWord.length;
 		currentSquares[lg].innerHTML = letter;
@@ -39,7 +39,7 @@ let pushLetter = (letter) => {
 	}
 };
 
-let popLetter = () => {
+const popLetter = () => {
 	if (currentWord.length > 0) {
 		let lg = currentWord.length;
 		currentSquares[lg - 1].innerHTML = '';
@@ -48,7 +48,7 @@ let popLetter = () => {
 	}
 };
 
-let confirmWord = () => {
+const confirmWord = async () => {
 	if (currentWord.length < pickedWord.length) return;
 
 	let goodLetters = [];
@@ -101,9 +101,9 @@ let confirmWord = () => {
 	}
 };
 
-let endGame = (status) => {
-	let statusEl = document.querySelector('#end-status');
-	let passwordEl = document.querySelector('#password');
+const endGame = (status) => {
+	const statusEl = document.querySelector('#end-status');
+	const passwordEl = document.querySelector('#password');
 
 	passwordEl.innerHTML = 'HASŁO TO: ' + pickedWord;
 
@@ -116,25 +116,50 @@ let endGame = (status) => {
 	}
 
 	document.querySelector('#end').style.display = 'flex';
-	document.querySelector('#restart-game').addEventListener('click', () => {
-		window.location.reload();
-	});
 };
+
+const restartGame = () => {
+	window.location.reload();
+};
+
+document.querySelector('#restart-game').addEventListener('click', restartGame);
+
+document.querySelector('#start-game').addEventListener('click', startGame);
 
 keyboardEl.addEventListener('click', (e) => {
 	if (e.target.classList.contains('key')) {
-		if (e.target.innerHTML == 'ENTER') {
-			if (GAMESTATUS == 'GAME') {
+		if (GAMESTATUS == 'GAME') {
+			if (e.target.innerHTML == 'ENTER') {
 				confirmWord();
-			}
-		} else if (e.target.innerHTML == 'COFNIJ') {
-			if (GAMESTATUS == 'GAME') {
+			} else if (e.target.innerHTML == 'COFNIJ') {
 				popLetter();
-			}
-		} else {
-			if (GAMESTATUS == 'GAME') {
+			} else {
 				pushLetter(e.target.innerHTML);
 			}
+		}
+	}
+});
+
+document.addEventListener('keydown', async (e) => {
+	if (GAMESTATUS == 'GAME') {
+		if (e.key == 'Backspace') {
+			popLetter();
+		} else if (e.key == 'Enter') {
+			confirmWord();
+		} else if (e.key.length == 1) {
+			let key = e.key.toUpperCase();
+
+			if (key.match(/[QWERTYUIOPASDFGHJKLZXCVBNMĄĆĘŁÓŚŃŻŹ]/i)) {
+				pushLetter(key);
+			}
+		}
+	} else if (GAMESTATUS == 'START') {
+		if (e.key == 'Enter') {
+			startGame();
+		}
+	} else if (GAMESTATUS == 'END') {
+		if (e.key == 'Enter') {
+			restartGame();
 		}
 	}
 });
