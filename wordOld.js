@@ -1,4 +1,4 @@
-const words = [
+const wordsOld = [
 	'drzwi',
 	'chyba',
 	'nagle',

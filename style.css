@@ -112,6 +112,7 @@ body {
 
 .tutorial-container {
 	display: flex;
+	max-width: 600px;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
