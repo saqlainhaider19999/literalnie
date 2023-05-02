@@ -3,10 +3,9 @@ let GAMESTATUS = 'START';
 let randomWord = words[Math.floor(Math.random() * words.length)];
 
 const pickedWord = randomWord.toUpperCase();
-//console.log(pickedWord);
+// console.log(pickedWord);
 
 let boardEl = document.querySelector('.board');
-boardEl.style.gridTemplateColumns = `repeat(${pickedWord.length}, 55px)`;
 
 for (let i = 0; i < 6; i++) {
 	for (let j = 0; j < pickedWord.length; j++) {

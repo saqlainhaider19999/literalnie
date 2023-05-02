@@ -8,17 +8,20 @@ body {
 	background-color: #121213;
 	font-family: Segoe UI;
 	font-weight: bold;
+	display: flex;
+	flex-direction: column;
 	color: white;
 	margin: 0;
+	padding: 0;
+	min-height: 100vh;
 }
 
 .container {
-	width: 500px;
-	height: 100vh;
+	flex: 1 1 0%;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 
 .header {
@@ -37,11 +40,12 @@ body {
 	justify-content: center;
 	align-items: center;
 	gap: 5px;
+	grid-template-columns: repeat(5, 60px);
 }
 
 .square {
-	width: 55px;
-	height: 55px;
+	width: 60px;
+	height: 60px;
 	border: 3px solid #3a3a3c;
 	display: flex;
 	justify-content: center;
@@ -52,7 +56,6 @@ body {
 .keyboard {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 35px;
 }
 
 .keyboard-row {
@@ -62,7 +65,7 @@ body {
 }
 
 .key {
-	padding: 18px 16px;
+	padding: 20px 18px;
 	font-size: 16px;
 	margin: 4px;
 	border-radius: 5px;
@@ -102,8 +105,8 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100vw;
-	height: 100vh;
+	width: 100svw;
+	height: 100svh;
 	background-color: rgba(18, 18, 19, 0.95);
 }
 
@@ -112,13 +115,14 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	width: 500px;
-	height: 600px;
+	width: 70vw;
+	height: 50vh;
 	text-align: center;
 }
 
 .tutorial-main {
 	margin-top: 20px;
+	width: 100%;
 }
 
 .tutorial-section {
@@ -130,7 +134,9 @@ body {
 }
 
 .tutorial-section .square {
-	margin-right: 100px;
+	margin-right: 10px;
+	display: flex;
+	flex-shrink: 0;
 }
 
 .tutorial-container button {
@@ -184,15 +190,32 @@ body {
 	color: red;
 }
 
-@media screen and (max-height: 830px) {
+@media (max-width: 600px) {
 	.key {
 		padding: 14px 12px;
+		font-size: 15px;
+		margin: 4px;
 	}
-	.keyboard {
-		margin-bottom: 15px;
+}
+@media (max-width: 500px) {
+	.key {
+		padding: 12px 10px;
+		font-size: 14px;
+		margin: 3px;
 	}
-	.header h1 {
-		font-size: 24px;
-		margin: 5px 0;
+}
+@media (max-width: 400px) {
+	.key {
+		padding: 12px 9px;
+		font-size: 13px;
+		margin: 3px;
+	}
+	.square {
+		width: 50px;
+		height: 50px;
+	}
+	.board {
+		gap: 4px;
+		grid-template-columns: repeat(5, 50px);
 	}
 }
